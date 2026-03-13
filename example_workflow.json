@@ -1,14 +1,14 @@
 {
-  "last_node_id": 16,
-  "last_link_id": 8,
+  "last_node_id": 5,
+  "last_link_id": 0,
   "nodes": [
     {
       "id": 1,
       "type": "Note",
-      "pos": [100, 30],
+      "pos": [100, 50],
       "size": {
-        "0": 600,
-        "1": 100
+        "0": 500,
+        "1": 120
       },
       "flags": {},
       "order": 0,
@@ -16,16 +16,16 @@
       "inputs": [],
       "outputs": [],
       "properties": {
-        "text": "🎬 Moyin Creator 工作流 - 樱花相遇\n\n这个工作流展示了如何使用 Moyin Creator 节点！\n\n流程：\n1️⃣ 创建角色 (Alice)\n2️⃣ 创建场景\n3️⃣ 生成提示词\n4️⃣ 连接到 ComfyUI 图像生成器"
+        "text": "🎬 Moyin Creator 工作流\n\n如果节点没有显示，请确认：\n\n1. 文件夹在 ComfyUI/custom_nodes/comfyui-moyin-nodes/\n2. 已完全重启 ComfyUI（不是刷新）\n3. 检查 ComfyUI 控制台错误\n\n节点应该在：\n右键 → Add Node → Moyin Creator"
       }
     },
     {
       "id": 2,
       "type": "MoyinCreateCharacter",
-      "pos": [100, 160],
+      "pos": [100, 200],
       "size": {
-        "0": 320,
-        "1": 460
+        "0": 315,
+        "1": 440
       },
       "flags": {},
       "order": 1,
@@ -35,9 +35,7 @@
         {
           "name": "character_json",
           "type": "STRING",
-          "links": [
-            1
-          ],
+          "links": null,
           "shape": 3,
           "slot_index": 0
         },
@@ -55,84 +53,29 @@
       "widgets_values": [
         "Alice",
         "human",
-        "blonde hair, green eyes, white dress, young woman, 20 years old",
-        "anime style, soft shading, vibrant colors",
-        "kind, gentle, optimistic",
-        "sp_cherry_blossom"
-      ]
-    },
-    {
-      "id": 3,
-      "type": "MoyinCharacterToPrompt",
-      "pos": [470, 160],
-      "size": {
-        "0": 320,
-        "1": 140
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "character_json",
-          "type": "STRING",
-          "link": 1
-        }
-      ],
-      "outputs": [
-        {
-          "name": "character_prompt",
-          "type": "STRING",
-          "links": [
-            2
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MoyinCharacterToPrompt"
-      },
-      "widgets_values": [
+        "blonde hair, green eyes, white dress",
+        "anime style",
+        "kind",
         ""
       ]
     },
     {
-      "id": 4,
-      "type": "Note",
-      "pos": [100, 660],
-      "size": {
-        "0": 300,
-        "1": 50
-      },
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {
-        "text": "🎬 场景: Alice 在樱花公园"
-      }
-    },
-    {
-      "id": 5,
+      "id": 3,
       "type": "MoyinCreateScene",
-      "pos": [100, 730],
+      "pos": [470, 200],
       "size": {
-        "0": 320,
-        "1": 480
+        "0": 315,
+        "1": 460
       },
       "flags": {},
-      "order": 4,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
         {
           "name": "scene_json",
           "type": "STRING",
-          "links": [
-            3
-          ],
+          "links": null,
           "shape": 3,
           "slot_index": 0
         }
@@ -142,66 +85,24 @@
       },
       "widgets_values": [
         1,
-        "在一个阳光明媚的春日早晨，Alice 站在樱花公园的入口处，微风轻轻吹起她的发丝，樱花花瓣在空中飘舞。",
-        "a beautiful cherry blossom park in the morning, sunlight filtering through pink cherry blossom trees, petals falling gently, stone path",
-        "standing near park entrance, looking around expectantly, slight smile on face",
+        "樱花公园场景",
+        "cherry blossom park",
+        "standing",
         "Medium Shot",
-        "blonde hair, green eyes, white dress",
-        "peaceful"
+        "",
+        ""
       ]
     },
     {
-      "id": 6,
-      "type": "MoyinSceneToImagePrompt",
-      "pos": [470, 730],
-      "size": {
-        "0": 320,
-        "1": 300
-      },
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "scene_json",
-          "type": "STRING",
-          "link": 3
-        },
-        {
-          "name": "character_prompt",
-          "type": "STRING",
-          "link": 2
-        }
-      ],
-      "outputs": [
-        {
-          "name": "image_prompt",
-          "type": "STRING",
-          "links": null,
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MoyinSceneToImagePrompt"
-      },
-      "widgets_values": [
-        "",
-        "anime style, soft shading, vibrant colors, cherry blossom aesthetic",
-        "",
-        "high quality, 4k, detailed, masterpiece"
-      ]
-    },
-    {
-      "id": 7,
+      "id": 4,
       "type": "MoyinBuildNegativePrompt",
-      "pos": [840, 730],
+      "pos": [840, 200],
       "size": {
-        "0": 320,
+        "0": 315,
         "1": 140
       },
       "flags": {},
-      "order": 6,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -217,70 +118,11 @@
         "Node name for S&R": "MoyinBuildNegativePrompt"
       },
       "widgets_values": [
-        "extra fingers, bad hands, distorted face, ugly, low resolution, blurry, watermark"
+        "bad hands, extra fingers"
       ]
-    },
-    {
-      "id": 8,
-      "type": "Note",
-      "pos": [840, 160],
-      "size": {
-        "0": 450,
-        "1": 200
-      },
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {
-        "text": "📝 下一步：连接到 ComfyUI 图像生成\n\n将以下节点连接起来：\n\n1️⃣ image_prompt → CLIP Text Encode (Prompt)\n2️⃣ negative_prompt → CLIP Text Encode (Negative)\n3️⃣ 两者都连接到 KSampler\n4️⃣ KSampler → VAE Decode\n5️⃣ VAE Decode → Save Image\n\n然后点击 Queue Prompt！🌸"
-      }
-    },
-    {
-      "id": 9,
-      "type": "Note",
-      "pos": [100, 1250],
-      "size": {
-        "0": 550,
-        "1": 150
-      },
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {
-        "text": "🎯 节点搜索提示\n\n在 ComfyUI 中搜索节点：\n\n右键 → Add Node → Moyin Creator\n\n或直接搜索：\n- \"Create Character\"\n- \"Create Scene\"\n- \"Scene to Image Prompt\"\n- \"Build Negative Prompt\"\n\n节点在以下分组中：\n- Moyin Creator/Character\n- Moyin Creator/Scene\n- Moyin Creator/Prompt"
-      }
     }
   ],
-  "links": [
-    [
-      1,
-      2,
-      0,
-      3,
-      0,
-      "STRING"
-    ],
-    [
-      2,
-      3,
-      0,
-      6,
-      1,
-      "STRING"
-    ],
-    [
-      3,
-      5,
-      0,
-      6,
-      0,
-      "STRING"
-    ]
-  ],
+  "links": [],
   "groups": [],
   "config": {},
   "extra": {},
