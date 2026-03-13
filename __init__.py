@@ -8,6 +8,7 @@ from nodes import (
     MoyinCombineScenes,
     MoyinCreateScreenplay,
     MoyinSceneToImagePrompt,
+    MoyinAPIConfig,
 )
 
 NODE_CLASS_MAPPINGS = {
@@ -20,6 +21,7 @@ NODE_CLASS_MAPPINGS = {
     "MoyinCombineScenes": MoyinCombineScenes,
     "MoyinCreateScreenplay": MoyinCreateScreenplay,
     "MoyinSceneToImagePrompt": MoyinSceneToImagePrompt,
+    "MoyinAPIConfig": MoyinAPIConfig,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -32,6 +34,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "MoyinCombineScenes": "📚 Combine Scenes",
     "MoyinCreateScreenplay": "📖 Create Screenplay",
     "MoyinSceneToImagePrompt": "🎨 Scene to Image Prompt",
+    "MoyinAPIConfig": "🔧 API Config",
 }
 
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS"]

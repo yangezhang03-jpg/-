@@ -379,3 +379,44 @@ class MoyinSceneToImagePrompt:
             return (", ".join([p for p in parts if p]),)
         except:
             return ("",)
+
+
+class MoyinAPIConfig:
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "api_provider": (["OpenAI", "Anthropic", "Google", "Custom"],),
+            },
+            "optional": {
+                "api_key": ("STRING", {"default": "", "multiline": False, "placeholder": "API Key"}),
+                "api_url": ("STRING", {"default": "", "multiline": False, "placeholder": "Custom API URL (if needed)"}),
+                "model": ("STRING", {"default": "gpt-4o", "placeholder": "Model name"}),
+                "temperature": ("FLOAT", {"default": 0.7, "min": 0.0, "max": 1.0, "step": 0.1}),
+                "max_tokens": ("INT", {"default": 2000, "min": 100, "max": 10000, "step": 100}),
+            }
+        }
+    
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("api_config_json",)
+    FUNCTION = "create_api_config"
+    CATEGORY = "Moyin Creator/API"
+    
+    def create_api_config(
+        self,
+        api_provider: str,
+        api_key: str = "",
+        api_url: str = "",
+        model: str = "gpt-4o",
+        temperature: float = 0.7,
+        max_tokens: int = 2000,
+    ) -> Tuple[str]:
+        config = {
+            "api_provider": api_provider,
+            "api_key": api_key,
+            "api_url": api_url,
+            "model": model,
+            "temperature": temperature,
+            "max_tokens": max_tokens,
+        }
+        return (json.dumps(config, ensure_ascii=False, indent=2),)
