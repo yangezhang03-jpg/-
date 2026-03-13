@@ -152,6 +152,23 @@
 **输出：**
 - `consistency_prompt`: 一致性提示词
 
+## 示例工作流
+
+项目包含一个预配置的示例工作流文件 `example_workflow.json`，可以直接拖拽到 ComfyUI 中使用。
+
+### 示例工作流包含：
+- 2 个角色创建节点（Alice 和 Bob）
+- 2 个场景生成节点（樱花公园相遇场景）
+- 2 个提示词编译器节点（场景图像和负面提示词）
+- 1 个一致性提示词生成节点
+- 1 个剧本生成器节点
+- 1 个说明注释节点
+
+### 使用方法：
+1. 在 ComfyUI 中点击「Load」按钮，或直接将 `example_workflow.json` 文件拖拽到 ComfyUI 界面
+2. 根据需要修改节点参数
+3. 连接到其他 ComfyUI 节点（如 KSampler、CLIP Text Encode 等）进行图像/视频生成
+
 ## 许可证
 
 本项目采用 AGPL-3.0 许可证开源，与原始 moyin-creator 项目保持一致。
