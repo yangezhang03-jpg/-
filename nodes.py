@@ -1,27 +1,22 @@
 import json
 import uuid
+import sys
+import os
 from typing import Dict, List, Any, Optional, Tuple
 
-try:
-    from .moyin_types import (
-        AIScene, AICharacter, AIScreenplay, GenerationConfig,
-        CharacterBible, SceneStatus, CameraType
-    )
-    from .prompt_compiler import PromptCompiler, prompt_compiler
-    from .character_bible import (
-        CharacterBibleManager, character_bible_manager,
-        generate_consistency_prompt, merge_character_analyses
-    )
-except ImportError:
-    from moyin_types import (
-        AIScene, AICharacter, AIScreenplay, GenerationConfig,
-        CharacterBible, SceneStatus, CameraType
-    )
-    from prompt_compiler import PromptCompiler, prompt_compiler
-    from character_bible import (
-        CharacterBibleManager, character_bible_manager,
-        generate_consistency_prompt, merge_character_analyses
-    )
+current_dir = os.path.dirname(os.path.abspath(__file__))
+if current_dir not in sys.path:
+    sys.path.insert(0, current_dir)
+
+from moyin_types import (
+    AIScene, AICharacter, AIScreenplay, GenerationConfig,
+    CharacterBible, SceneStatus, CameraType
+)
+from prompt_compiler import PromptCompiler, prompt_compiler
+from character_bible import (
+    CharacterBibleManager, character_bible_manager,
+    generate_consistency_prompt, merge_character_analyses
+)
 
 
 class MoyinCreateCharacter:
