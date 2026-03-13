@@ -1,62 +1,31 @@
 {
-  "last_node_id": 14,
-  "last_link_id": 17,
+  "last_node_id": 20,
+  "last_link_id": 25,
   "nodes": [
     {
       "id": 1,
-      "type": "MoyinCharacterBible",
-      "pos": [100, 100],
+      "type": "Note",
+      "pos": [50, 30],
       "size": {
-        "0": 315,
-        "1": 580
+        "0": 500,
+        "1": 150
       },
       "flags": {},
       "order": 0,
       "mode": 0,
       "inputs": [],
-      "outputs": [
-        {
-          "name": "result",
-          "type": "STRING",
-          "links": [
-            3
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "character_id",
-          "type": "STRING",
-          "links": [
-            1,
-            2
-          ],
-          "shape": 3,
-          "slot_index": 1
-        }
-      ],
+      "outputs": [],
       "properties": {
-        "Node name for S&R": "MoyinCharacterBible"
-      },
-      "widgets_values": [
-        "add_character",
-        "Alice",
-        "human",
-        "blonde hair, green eyes, white dress, young woman",
-        "anime style, soft shading, vibrant colors",
-        "kind, gentle, optimistic",
-        "",
-        "",
-        "sp_001"
-      ]
+        "text": "🎬 Moyin Creator Workflow - 樱花相遇\n\n这是一个清晰易懂的 Moyin Creator 工作流示例！\n\n工作流步骤：\n1. 创建角色 (Alice & Bob)\n2. 创建场景\n3. 组合场景\n4. 生成提示词\n5. 连接到 ComfyUI 图像生成\n\n节点按功能分组，使用更简单！"
+      }
     },
     {
       "id": 2,
-      "type": "MoyinCharacterBible",
-      "pos": [100, 750],
+      "type": "MoyinCreateCharacter",
+      "pos": [50, 220],
       "size": {
         "0": 315,
-        "1": 580
+        "1": 440
       },
       "flags": {},
       "order": 1,
@@ -64,10 +33,10 @@
       "inputs": [],
       "outputs": [
         {
-          "name": "result",
+          "name": "character_json",
           "type": "STRING",
           "links": [
-            4
+            1
           ],
           "shape": 3,
           "slot_index": 0
@@ -75,39 +44,146 @@
         {
           "name": "character_id",
           "type": "STRING",
-          "links": [
-            1,
-            2
-          ],
+          "links": null,
           "shape": 3,
           "slot_index": 1
         }
       ],
       "properties": {
-        "Node name for S&R": "MoyinCharacterBible"
+        "Node name for S&R": "MoyinCreateCharacter"
       },
       "widgets_values": [
-        "add_character",
-        "Bob",
+        "Alice",
         "human",
-        "black hair, brown eyes, leather jacket, young man",
-        "anime style, sharp lines, cool tone",
-        "cool, mysterious, protective",
-        "",
-        "",
-        "sp_001"
+        "blonde hair, green eyes, white dress, young woman, 20 years old",
+        "anime style, soft shading, vibrant colors",
+        "kind, gentle, optimistic",
+        "sp_cherry_blossom"
       ]
     },
     {
       "id": 3,
-      "type": "MoyinSceneGenerator",
-      "pos": [500, 100],
+      "type": "MoyinCharacterToPrompt",
+      "pos": [400, 220],
+      "size": {
+        "0": 315,
+        "1": 140
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "character_json",
+          "type": "STRING",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "character_prompt",
+          "type": "STRING",
+          "links": [
+            3,
+            4
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MoyinCharacterToPrompt"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 4,
+      "type": "MoyinCreateCharacter",
+      "pos": [50, 700],
+      "size": {
+        "0": 315,
+        "1": 440
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "character_json",
+          "type": "STRING",
+          "links": [
+            2
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "character_id",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MoyinCreateCharacter"
+      },
+      "widgets_values": [
+        "Bob",
+        "human",
+        "black hair, brown eyes, leather jacket, jeans, young man, 22 years old",
+        "anime style, sharp lines, cool tone",
+        "cool, mysterious, protective",
+        "sp_cherry_blossom"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "MoyinCharacterToPrompt",
+      "pos": [400, 700],
+      "size": {
+        "0": 315,
+        "1": 140
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "character_json",
+          "type": "STRING",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "character_prompt",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MoyinCharacterToPrompt"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 6,
+      "type": "MoyinCreateScene",
+      "pos": [750, 100],
       "size": {
         "0": 315,
         "1": 460
       },
       "flags": {},
-      "order": 2,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -122,28 +198,28 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "MoyinSceneGenerator"
+        "Node name for S&R": "MoyinCreateScene"
       },
       "widgets_values": [
         1,
-        "在一个阳光明媚的早晨，Alice 站在公园的入口处，等待着什么人。",
-        "a beautiful park in the morning, cherry blossom trees, sunlight filtering through leaves",
-        "standing, looking around, smiling slightly",
+        "在一个阳光明媚的春日早晨，Alice 站在樱花公园的入口处，微风轻轻吹起她的发丝，樱花花瓣在空中飘舞。",
+        "a beautiful cherry blossom park in the morning, sunlight filtering through pink cherry blossom trees, petals falling gently, stone path",
+        "standing near park entrance, looking around expectantly, slight smile on face",
         "Medium Shot",
         "blonde hair, green eyes, white dress",
         "peaceful"
       ]
     },
     {
-      "id": 4,
-      "type": "MoyinSceneGenerator",
-      "pos": [500, 600],
+      "id": 7,
+      "type": "MoyinCreateScene",
+      "pos": [750, 600],
       "size": {
         "0": 315,
         "1": 460
       },
       "flags": {},
-      "order": 3,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -158,33 +234,44 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "MoyinSceneGenerator"
+        "Node name for S&R": "MoyinCreateScene"
       },
       "widgets_values": [
         2,
-        "Bob 从远处走来，Alice 看到了他，脸上露出了开心的笑容。",
-        "Bob walking towards Alice in the park, cherry blossom petals falling",
-        "walking forward, hands in pockets, looking at Alice",
+        "Bob 从远处沿着铺满樱花的小径走来，Alice 看到了他，脸上绽放出开心的笑容。",
+        "Bob walking along cherry blossom path towards Alice, pink petals falling around them, warm golden sunlight",
+        "walking forward with hands in pockets, looking at Alice, calm expression",
         "Wide Shot",
         "black hair, brown eyes, leather jacket",
         "romantic"
       ]
     },
     {
-      "id": 5,
-      "type": "MoyinPromptCompiler",
-      "pos": [900, 100],
+      "id": 8,
+      "type": "MoyinCombineScenes",
+      "pos": [1100, 350],
       "size": {
         "0": 315,
-        "1": 580
+        "1": 340
       },
       "flags": {},
-      "order": 4,
+      "order": 7,
       "mode": 0,
-      "inputs": [],
+      "inputs": [
+        {
+          "name": "scene_1",
+          "type": "STRING",
+          "link": 5
+        },
+        {
+          "name": "scene_2",
+          "type": "STRING",
+          "link": 6
+        }
+      ],
       "outputs": [
         {
-          "name": "compiled_prompt",
+          "name": "scenes_json",
           "type": "STRING",
           "links": [
             7
@@ -194,42 +281,79 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "MoyinPromptCompiler"
+        "Node name for S&R": "MoyinCombineScenes"
       },
       "widgets_values": [
-        "scene_image",
-        "anime style, soft shading, vibrant colors, cherry blossom",
-        "high quality, 4k, detailed, masterpiece",
-        "blonde hair, green eyes, white dress, young woman",
-        "a beautiful park in the morning, cherry blossom trees, sunlight filtering through leaves",
-        "Medium Shot",
-        "standing, looking around, smiling slightly",
         "",
-        5,
+        "",
+        "",
+        "",
         ""
       ]
     },
     {
-      "id": 6,
-      "type": "MoyinConsistencyPrompt",
-      "pos": [900, 750],
+      "id": 9,
+      "type": "MoyinCreateScreenplay",
+      "pos": [1450, 350],
       "size": {
         "0": 315,
-        "1": 180
+        "1": 260
       },
       "flags": {},
-      "order": 5,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
-          "name": "character_bible_json",
+          "name": "scenes_json",
+          "type": "STRING",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "screenplay_json",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MoyinCreateScreenplay"
+      },
+      "widgets_values": [
+        "Cherry Blossom Meeting",
+        "romance",
+        "16:9",
+        "[]"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "MoyinSceneToImagePrompt",
+      "pos": [1100, 50],
+      "size": {
+        "0": 315,
+        "1": 280
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "scene_json",
+          "type": "STRING",
+          "link": 5
+        },
+        {
+          "name": "character_prompt",
           "type": "STRING",
           "link": 3
         }
       ],
       "outputs": [
         {
-          "name": "consistency_prompt",
+          "name": "image_prompt",
           "type": "STRING",
           "links": [
             8
@@ -239,44 +363,30 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "MoyinConsistencyPrompt"
+        "Node name for S&R": "MoyinSceneToImagePrompt"
       },
       "widgets_values": [
-        ""
+        "",
+        "anime style, soft shading, vibrant colors, cherry blossom aesthetic",
+        "",
+        "high quality, 4k, detailed, masterpiece"
       ]
     },
     {
-      "id": 7,
-      "type": "Note",
-      "pos": [50, 1400],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {
-        "text": "Moyin Creator Workflow 示例\n\n这是一个基础的 Moyin Creator 节点工作流示例。\n\n工作流步骤：\n1. 创建角色（使用 MoyinCharacterBible 节点）\n2. 创建场景（使用 MoyinSceneGenerator 节点）\n3. 生成提示词（使用 MoyinPromptCompiler 节点）\n4. 保持角色一致性（使用 MoyinConsistencyPrompt 节点）\n\n你可以将这些节点与 ComfyUI 的其他节点（如 KSampler、CLIP Text Encode 等）连接使用！"
-      }
-    },
-    {
-      "id": 8,
-      "type": "MoyinPromptCompiler",
-      "pos": [900, 1100],
+      "id": 11,
+      "type": "MoyinBuildNegativePrompt",
+      "pos": [1450, 50],
       "size": {
         "0": 315,
-        "1": 580
+        "1": 140
       },
       "flags": {},
-      "order": 7,
+      "order": 10,
       "mode": 0,
       "inputs": [],
       "outputs": [
         {
-          "name": "compiled_prompt",
+          "name": "negative_prompt",
           "type": "STRING",
           "links": [
             9
@@ -286,132 +396,115 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "MoyinPromptCompiler"
+        "Node name for S&R": "MoyinBuildNegativePrompt"
       },
       "widgets_values": [
-        "negative",
-        "",
-        "",
-        "",
-        "",
-        "Medium Shot",
-        "",
-        "",
-        5,
-        "extra fingers, bad hands, distorted, ugly, low resolution"
+        "extra fingers, bad hands, distorted face, ugly, low resolution, blurry, watermark"
       ]
     },
     {
-      "id": 9,
-      "type": "MoyinScreenplayGenerator",
-      "pos": [1300, 100],
+      "id": 12,
+      "type": "Note",
+      "pos": [1100, 750],
       "size": {
-        "0": 315,
-        "1": 340
+        "0": 400,
+        "1": 120
       },
       "flags": {},
-      "order": 8,
+      "order": 11,
       "mode": 0,
       "inputs": [],
-      "outputs": [
-        {
-          "name": "screenplay_json",
-          "type": "STRING",
-          "links": [
-            10
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
+      "outputs": [],
       "properties": {
-        "Node name for S&R": "MoyinScreenplayGenerator"
+        "text": "📝 下一步：连接到 ComfyUI 图像生成\n\n将 image_prompt 和 negative_prompt 连接到：\n- CLIP Text Encode (Prompt)\n- CLIP Text Encode (Negative Prompt)\n\n然后连接到 KSampler 和 VAE Decode！"
+      }
+    },
+    {
+      "id": 13,
+      "type": "Note",
+      "pos": [50, 1180],
+      "size": {
+        "0": 550,
+        "1": 180
       },
-      "widgets_values": [
-        "Cherry Blossom Meeting",
-        "romance",
-        "16:9",
-        "[{\"scene_id\": 1, \"narration\": \"在一个阳光明媚的早晨，Alice 站在公园的入口处...\"}]",
-        "[{\"id\": \"char_001\", \"name\": \"Alice\", \"type\": \"human\"}]"
-      ]
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": "🎯 节点分组说明\n\n所有 Moyin Creator 节点按功能分组：\n\n👤 Moyin Creator/Character\n  - 🪄 Create Character - 创建角色\n  - ✨ Character to Prompt - 角色转提示词\n\n🎬 Moyin Creator/Scene\n  - 🎬 Create Scene - 创建场景\n  - 📚 Combine Scenes - 组合场景\n\n✨ Moyin Creator/Prompt\n  - 🖼️ Build Image Prompt - 构建图像提示词\n  - 🎥 Build Video Prompt - 构建视频提示词\n  - 🚫 Build Negative Prompt - 构建负面提示词\n  - 🎨 Scene to Image Prompt - 场景转图像提示词\n\n📖 Moyin Creator/Screenplay\n  - 📖 Create Screenplay - 创建剧本"
+      }
     }
   ],
   "links": [
     [
       1,
-      1,
-      1,
-      6,
+      2,
+      0,
+      3,
       0,
       "STRING"
     ],
     [
       2,
-      2,
-      1,
-      6,
+      4,
+      0,
+      5,
       0,
       "STRING"
     ],
     [
       3,
+      3,
+      0,
+      10,
       1,
-      0,
-      6,
-      0,
       "STRING"
     ],
     [
       4,
-      2,
+      3,
       0,
-      6,
-      0,
+      -1,
+      -1,
       "STRING"
     ],
     [
       5,
-      3,
+      6,
       0,
-      9,
+      8,
       0,
       "STRING"
     ],
     [
       6,
-      4,
+      7,
       0,
-      9,
-      0,
+      8,
+      1,
       "STRING"
     ],
     [
       7,
-      5,
-      0,
-      -1,
-      -1,
-      "STRING"
-    ],
-    [
       8,
-      6,
       0,
-      -1,
-      -1,
-      "STRING"
-    ],
-    [
       9,
-      8,
       0,
-      -1,
-      -1,
       "STRING"
     ],
     [
+      8,
       10,
+      0,
+      -1,
+      -1,
+      "STRING"
+    ],
+    [
       9,
+      11,
       0,
       -1,
       -1,

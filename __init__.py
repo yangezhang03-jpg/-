@@ -1,25 +1,37 @@
 from nodes import (
-    MoyinPromptCompilerNode,
-    MoyinCharacterBibleNode,
-    MoyinSceneGeneratorNode,
-    MoyinScreenplayGeneratorNode,
-    MoyinConsistencyPromptNode,
+    MoyinCreateCharacter,
+    MoyinCharacterToPrompt,
+    MoyinCreateScene,
+    MoyinBuildImagePrompt,
+    MoyinBuildVideoPrompt,
+    MoyinBuildNegativePrompt,
+    MoyinCombineScenes,
+    MoyinCreateScreenplay,
+    MoyinSceneToImagePrompt,
 )
 
 NODE_CLASS_MAPPINGS = {
-    "MoyinPromptCompiler": MoyinPromptCompilerNode,
-    "MoyinCharacterBible": MoyinCharacterBibleNode,
-    "MoyinSceneGenerator": MoyinSceneGeneratorNode,
-    "MoyinScreenplayGenerator": MoyinScreenplayGeneratorNode,
-    "MoyinConsistencyPrompt": MoyinConsistencyPromptNode,
+    "MoyinCreateCharacter": MoyinCreateCharacter,
+    "MoyinCharacterToPrompt": MoyinCharacterToPrompt,
+    "MoyinCreateScene": MoyinCreateScene,
+    "MoyinBuildImagePrompt": MoyinBuildImagePrompt,
+    "MoyinBuildVideoPrompt": MoyinBuildVideoPrompt,
+    "MoyinBuildNegativePrompt": MoyinBuildNegativePrompt,
+    "MoyinCombineScenes": MoyinCombineScenes,
+    "MoyinCreateScreenplay": MoyinCreateScreenplay,
+    "MoyinSceneToImagePrompt": MoyinSceneToImagePrompt,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "MoyinPromptCompiler": "Moyin Prompt Compiler",
-    "MoyinCharacterBible": "Moyin Character Bible",
-    "MoyinSceneGenerator": "Moyin Scene Generator",
-    "MoyinScreenplayGenerator": "Moyin Screenplay Generator",
-    "MoyinConsistencyPrompt": "Moyin Consistency Prompt",
+    "MoyinCreateCharacter": "🪄 Create Character",
+    "MoyinCharacterToPrompt": "✨ Character to Prompt",
+    "MoyinCreateScene": "🎬 Create Scene",
+    "MoyinBuildImagePrompt": "🖼️ Build Image Prompt",
+    "MoyinBuildVideoPrompt": "🎥 Build Video Prompt",
+    "MoyinBuildNegativePrompt": "🚫 Build Negative Prompt",
+    "MoyinCombineScenes": "📚 Combine Scenes",
+    "MoyinCreateScreenplay": "📖 Create Screenplay",
+    "MoyinSceneToImagePrompt": "🎨 Scene to Image Prompt",
 }
 
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS"]
