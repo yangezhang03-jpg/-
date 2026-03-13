@@ -1,0 +1,425 @@
+{
+  "last_node_id": 14,
+  "last_link_id": 17,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "MoyinCharacterBible",
+      "pos": [100, 100],
+      "size": {
+        "0": 315,
+        "1": 580
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "STRING",
+          "links": [
+            3
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "character_id",
+          "type": "STRING",
+          "links": [
+            1,
+            2
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MoyinCharacterBible"
+      },
+      "widgets_values": [
+        "add_character",
+        "Alice",
+        "human",
+        "blonde hair, green eyes, white dress, young woman",
+        "anime style, soft shading, vibrant colors",
+        "kind, gentle, optimistic",
+        "",
+        "",
+        "sp_001"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "MoyinCharacterBible",
+      "pos": [100, 750],
+      "size": {
+        "0": 315,
+        "1": 580
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "STRING",
+          "links": [
+            4
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "character_id",
+          "type": "STRING",
+          "links": [
+            1,
+            2
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MoyinCharacterBible"
+      },
+      "widgets_values": [
+        "add_character",
+        "Bob",
+        "human",
+        "black hair, brown eyes, leather jacket, young man",
+        "anime style, sharp lines, cool tone",
+        "cool, mysterious, protective",
+        "",
+        "",
+        "sp_001"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "MoyinSceneGenerator",
+      "pos": [500, 100],
+      "size": {
+        "0": 315,
+        "1": 460
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "scene_json",
+          "type": "STRING",
+          "links": [
+            5
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MoyinSceneGenerator"
+      },
+      "widgets_values": [
+        1,
+        "在一个阳光明媚的早晨，Alice 站在公园的入口处，等待着什么人。",
+        "a beautiful park in the morning, cherry blossom trees, sunlight filtering through leaves",
+        "standing, looking around, smiling slightly",
+        "Medium Shot",
+        "blonde hair, green eyes, white dress",
+        "peaceful"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "MoyinSceneGenerator",
+      "pos": [500, 600],
+      "size": {
+        "0": 315,
+        "1": 460
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "scene_json",
+          "type": "STRING",
+          "links": [
+            6
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MoyinSceneGenerator"
+      },
+      "widgets_values": [
+        2,
+        "Bob 从远处走来，Alice 看到了他，脸上露出了开心的笑容。",
+        "Bob walking towards Alice in the park, cherry blossom petals falling",
+        "walking forward, hands in pockets, looking at Alice",
+        "Wide Shot",
+        "black hair, brown eyes, leather jacket",
+        "romantic"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "MoyinPromptCompiler",
+      "pos": [900, 100],
+      "size": {
+        "0": 315,
+        "1": 580
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "compiled_prompt",
+          "type": "STRING",
+          "links": [
+            7
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MoyinPromptCompiler"
+      },
+      "widgets_values": [
+        "scene_image",
+        "anime style, soft shading, vibrant colors, cherry blossom",
+        "high quality, 4k, detailed, masterpiece",
+        "blonde hair, green eyes, white dress, young woman",
+        "a beautiful park in the morning, cherry blossom trees, sunlight filtering through leaves",
+        "Medium Shot",
+        "standing, looking around, smiling slightly",
+        "",
+        5,
+        ""
+      ]
+    },
+    {
+      "id": 6,
+      "type": "MoyinConsistencyPrompt",
+      "pos": [900, 750],
+      "size": {
+        "0": 315,
+        "1": 180
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "character_bible_json",
+          "type": "STRING",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "consistency_prompt",
+          "type": "STRING",
+          "links": [
+            8
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MoyinConsistencyPrompt"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 7,
+      "type": "Note",
+      "pos": [50, 1400],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": "Moyin Creator Workflow 示例\n\n这是一个基础的 Moyin Creator 节点工作流示例。\n\n工作流步骤：\n1. 创建角色（使用 MoyinCharacterBible 节点）\n2. 创建场景（使用 MoyinSceneGenerator 节点）\n3. 生成提示词（使用 MoyinPromptCompiler 节点）\n4. 保持角色一致性（使用 MoyinConsistencyPrompt 节点）\n\n你可以将这些节点与 ComfyUI 的其他节点（如 KSampler、CLIP Text Encode 等）连接使用！"
+      }
+    },
+    {
+      "id": 8,
+      "type": "MoyinPromptCompiler",
+      "pos": [900, 1100],
+      "size": {
+        "0": 315,
+        "1": 580
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "compiled_prompt",
+          "type": "STRING",
+          "links": [
+            9
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MoyinPromptCompiler"
+      },
+      "widgets_values": [
+        "negative",
+        "",
+        "",
+        "",
+        "",
+        "Medium Shot",
+        "",
+        "",
+        5,
+        "extra fingers, bad hands, distorted, ugly, low resolution"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "MoyinScreenplayGenerator",
+      "pos": [1300, 100],
+      "size": {
+        "0": 315,
+        "1": 340
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "screenplay_json",
+          "type": "STRING",
+          "links": [
+            10
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MoyinScreenplayGenerator"
+      },
+      "widgets_values": [
+        "Cherry Blossom Meeting",
+        "romance",
+        "16:9",
+        "[{\"scene_id\": 1, \"narration\": \"在一个阳光明媚的早晨，Alice 站在公园的入口处...\"}]",
+        "[{\"id\": \"char_001\", \"name\": \"Alice\", \"type\": \"human\"}]"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      1,
+      6,
+      0,
+      "STRING"
+    ],
+    [
+      2,
+      2,
+      1,
+      6,
+      0,
+      "STRING"
+    ],
+    [
+      3,
+      1,
+      0,
+      6,
+      0,
+      "STRING"
+    ],
+    [
+      4,
+      2,
+      0,
+      6,
+      0,
+      "STRING"
+    ],
+    [
+      5,
+      3,
+      0,
+      9,
+      0,
+      "STRING"
+    ],
+    [
+      6,
+      4,
+      0,
+      9,
+      0,
+      "STRING"
+    ],
+    [
+      7,
+      5,
+      0,
+      -1,
+      -1,
+      "STRING"
+    ],
+    [
+      8,
+      6,
+      0,
+      -1,
+      -1,
+      "STRING"
+    ],
+    [
+      9,
+      8,
+      0,
+      -1,
+      -1,
+      "STRING"
+    ],
+    [
+      10,
+      9,
+      0,
+      -1,
+      -1,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
